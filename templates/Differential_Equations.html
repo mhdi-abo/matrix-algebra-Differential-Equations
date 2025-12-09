@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Differential Equations Solver</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+<nav>
+<div class="nav-title">Linear Algebra Tool</div>
+<ul>
+<li><a href="/">Matrix Operations</a></li>
+<li><a href="#" class="active-link">Differential Equations</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<h1>Differential Equations Solver</h1>
+
+<div class="card">
+<label>ODE Type:</label>
+<select id="odeType">
+  <option value="first">First Order</option>
+  <option value="second">Second Order</option>
+</select>
+</div>
+
+<div id="firstOrderOptions" class="card">
+<label>Equation Type:</label>
+<select id="firstSubtype">
+  <option value="linear">Linear (y'+p*y=q)</option>
+  <option value="separable">Separable</option>
+</select>
+
+<div id="firstLinear">
+<label>p(x):</label><input id="pValue" placeholder="ex: x">
+<label>q(x):</label><input id="qValue" placeholder="ex: sin(x)">
+</div>
+
+<div id="firstSeparable" style="display:none;">
+<label>f(x):</label><input id="fValue" placeholder="ex: x^2">
+<label>g(y):</label><input id="gValue" placeholder="ex: y">
+</div>
+</div>
+
+<div id="secondOrderOptions" class="card" style="display:none;">
+<label>a:</label><input id="aValue" value="1">
+<label>b:</label><input id="bValue" value="0">
+<label>c:</label><input id="cValue" value="0">
+<label>r(x):</label><input id="rValue" value="0">
+</div>
+
+<button id="solveBtn" class="btn-main">Solve ODE</button>
+
+<div class="card">
+<h3>Solution</h3>
+<pre id="solutionBox" class="results-pre">Solution will appear here...</pre>
+</div>
+
+<script src="{{ url_for('static', filename='ode.js') }}"></script>
+</main>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Linear Algebra Tool</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+  <nav>
+    <div class="nav-title">Linear Algebra Tool</div>
+    <ul>
+      <li><a href="#" class="active-link">Matrix Operations</a></li>
+      <li><a href="/ode">Differential Equations</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div id="main-container">
+    <div id="left-side">
+      <h3>Matrix Input</h3>
+
+      <div class="input-controls">
+        <button id="addMatrix">➕ Add Matrix</button>
+
+        <label>Operation:</label>
+        <select id="operation">
+          <option value="add">Add</option>
+          <option value="subtract">Subtract</option>
+          <option value="multiply">Multiply</option>
+          <option value="scalar_multiply">Scalar Multiply</option>
+          <option value="det">Determinant</option>
+          <option value="inverse">Inverse</option>
+          <option value="transpose">Transpose</option>
+          <option value="rank">Rank</option>
+          <option value="eigen">Eigenvalues/Vectors</option>
+          <option value="rref">RREF</option>
+          <option value="ref">REF</option>
+          <option value="linear_independence">Linear Independence</option>
+          <option value="row_space">Row Space</option>
+          <option value="col_space">Column Space</option>
+          <option value="diagonalize">Diagonalize</option>
+          <option value="cramer">Cramer's Rule</option>
+        </select>
+
+        <label>Matrix A:</label>
+        <select id="selectA"></select>
+
+        <label id="labelSelectB" style="display:none;">Matrix B:</label>
+        <select id="selectB" style="display:none;"></select>
+
+        <input type="number" id="scalarInput" placeholder="Scalar" style="display:none; width:120px;">
+
+        <button id="calculate">➗ Calculate</button>
+      </div>
+
+      <div id="matricesContainer"></div>
+    </div>
+
+    <div id="right-side">
+      <h2>Results</h2>
+      <div id="resultsContainer">
+        <p class="status-message">Use the "Add Matrix" button, fill and save matrices, then select operation and matrices.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="{{ url_for('static', filename='matrix.js') }}"></script>
+</body>
+</html>
